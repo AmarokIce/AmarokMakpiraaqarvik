@@ -1,14 +1,13 @@
-<div style="text-align: center;">
+<h1 align="center">
 
 ![](img/SmallLogo.png)
-
-# Amaruq Makpiraaqarvik
-
-
+<br>
 ![Static Badge](https://img.shields.io/badge/Minecraft-1.20-blue)
 ![Static Badge](https://img.shields.io/badge/AmarokLibrary%20Version-1.0-red)
+<br>
+# Amaruq Makpiraaqarvik
 
-</div>
+</h1>
 
 ## Using
 ```groovy
