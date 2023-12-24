@@ -8,15 +8,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-@Mod.EventBusSubscriber(modid = Main.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ItemInfoHelper {
     public static final Map<Item, Set<InfoBox>> infoBox = Maps.newHashMap();
 
@@ -29,8 +26,7 @@ public class ItemInfoHelper {
         else infoBox.put(item, Sets.newHashSet(info));
     }
 
-    @SubscribeEvent
-    public void itemInfoEvent(ItemTooltipEvent event) {
+    public static void itemInfoEvent(ItemTooltipEvent event) {
         var item = event.getItemStack().getItem();
         if (infoBox.containsKey(item)) {
             infoBox.get(item).forEach(it -> it.addInfo(event.getItemStack(), event.getEntity(), event.getToolTip(), event.getFlags()));

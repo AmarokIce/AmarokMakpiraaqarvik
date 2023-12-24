@@ -12,14 +12,14 @@ import net.neoforged.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = Main.MODID)
 public class AmarokEvent {
     @SubscribeEvent
-    public void playerEvent(PineappleTickEvent.PlayerSecondEvent event) {
+    public static void playerEvent(PineappleTickEvent.PlayerSecondEvent event) {
         Player player = event.getPlayer();
         if (player.getDisplayName().getString().equals("someoneice")) {
             AmarokEventHandler(player);
         }
     }
 
-    private void AmarokEventHandler(Player player) {
+    private static void AmarokEventHandler(Player player) {
         double x = player.getX();
         double y = player.getY();
         double z = player.getZ();

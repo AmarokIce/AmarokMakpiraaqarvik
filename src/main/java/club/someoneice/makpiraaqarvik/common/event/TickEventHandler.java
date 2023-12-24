@@ -9,10 +9,10 @@ import net.neoforged.neoforge.event.TickEvent;
 
 @Mod.EventBusSubscriber(modid = Main.MODID)
 public class TickEventHandler {
-    int clientTick, serverTick, worldTick, playerTick;
+    static int clientTick, serverTick, worldTick, playerTick;
 
     @SubscribeEvent
-    public void clientTickEvent(TickEvent.ClientTickEvent event) {
+    public static void clientTickEvent(TickEvent.ClientTickEvent event) {
         clientTick++;
         if (clientTick >= 20) {
             NeoForge.EVENT_BUS.post(new PineappleTickEvent.ClientSecondEvent());
@@ -21,7 +21,7 @@ public class TickEventHandler {
     }
 
     @SubscribeEvent
-    public void serverTickEvent(TickEvent.ServerTickEvent event) {
+    public static void serverTickEvent(TickEvent.ServerTickEvent event) {
         serverTick++;
         if (serverTick >= 20) {
             NeoForge.EVENT_BUS.post(new PineappleTickEvent.ServerSecondEvent());
@@ -30,7 +30,7 @@ public class TickEventHandler {
     }
 
     @SubscribeEvent
-    public void serverTickEvent(TickEvent.LevelTickEvent event) {
+    public static void serverTickEvent(TickEvent.LevelTickEvent event) {
         worldTick++;
         if (worldTick >= 20) {
             NeoForge.EVENT_BUS.post(new PineappleTickEvent.WorldSecondEvent(event.level));
@@ -39,7 +39,7 @@ public class TickEventHandler {
     }
 
     @SubscribeEvent
-    public void serverTickEvent(TickEvent.PlayerTickEvent event) {
+    public static void serverTickEvent(TickEvent.PlayerTickEvent event) {
         playerTick++;
         if (playerTick >= 20) {
             NeoForge.EVENT_BUS.post(new PineappleTickEvent.PlayerSecondEvent(event.player));
