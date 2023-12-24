@@ -4,8 +4,9 @@
 <br>
 ![Static Badge](https://img.shields.io/badge/Minecraft-1.20-blue)
 ![Static Badge](https://img.shields.io/badge/AmarokLibrary%20Version-1.0-red)
-<br>
 # Amaruq Makpiraaqarvik
+
+<br>
 
 </h1>
 
