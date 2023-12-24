@@ -3,7 +3,7 @@
 ![](img/SmallLogo.png) 
 <br />
 ![Static Badge](https://img.shields.io/badge/Minecraft-1.20-blue)
-![Static Badge](https://img.shields.io/badge/AmarokLibrary%20Version-1.1-red)
+![Static Badge](https://img.shields.io/badge/AmarokLibrary%20Version-1.2-red)
 <br />
 **Amaruq Makpiraaqarvik**
 </h1>
