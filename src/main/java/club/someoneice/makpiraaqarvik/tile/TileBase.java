@@ -16,8 +16,8 @@ public abstract class TileBase extends BlockEntity {
         super(type, pos, state);
     }
 
-    abstract void writeToNbt(CompoundTag nbt);
-    abstract void readFromNbt(CompoundTag nbt);
+    abstract public void writeToNbt(CompoundTag nbt);
+    abstract public void readFromNbt(CompoundTag nbt);
 
     @Override
     public CompoundTag serializeNBT() {

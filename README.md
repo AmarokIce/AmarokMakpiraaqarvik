@@ -3,7 +3,7 @@
 ![](img/SmallLogo.png) 
 <br />
 ![Static Badge](https://img.shields.io/badge/Minecraft-1.20-blue)
-![Static Badge](https://img.shields.io/badge/AmarokLibrary%20Version-1.0-red)
+![Static Badge](https://img.shields.io/badge/AmarokLibrary%20Version-1.1-red)
 <br />
 **Amaruq Makpiraaqarvik**
 </h1>
@@ -22,7 +22,7 @@ repositories {
 dependencies {
     // Other dependencies... 
     
-    implementation "club.someoneice.makpiraaqarvik:AmarokMakpiraaqarvik:1.20-1.0"
+    implementation "club.someoneice.makpiraaqarvik:AmarokMakpiraaqarvik:1.20-${AmarokLibraryVersion}"
 }
 ```
 
