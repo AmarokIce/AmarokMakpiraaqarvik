@@ -1,6 +1,31 @@
 package club.someoneice.makpiraaqarvik.util.math;
 
+import club.someoneice.makpiraaqarvik.util.ObjectUtil;
+import net.minecraft.core.BlockPos;
+
 public class MathUtil {
+    public static double posEuclideanDistance(BlockPos posX, BlockPos posY) {
+        double x, y, z;
+
+        if (posY.getX() > posX.getX())
+            x = posY.getX() - posX.getX();
+        else x = posX.getX() - posY.getX();
+
+        if (posY.getY() > posX.getY())
+            y = posY.getY() - posX.getY();
+        else y = posX.getY() - posY.getY();
+
+        if (posY.getZ() > posX.getZ())
+            z = posY.getZ() - posX.getZ();
+        else z = posX.getZ() - posY.getZ();
+
+        x = Math.pow(x, 2);
+        y = Math.pow(y, 2);
+        z = Math.pow(z, 2);
+
+        return Math.sqrt(x + y + z);
+    }
+
     public static int add(final int inputA, final int inputB) {
         int s, c, a = inputA, b = inputB;
 

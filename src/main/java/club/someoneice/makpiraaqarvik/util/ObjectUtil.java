@@ -4,9 +4,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 public class ObjectUtil {
-    public static <T> T runLambda(T t, ObjectRunWithType<T> run) {
-        run.run(t);
-        return t;
+    public static <T> T run(T t, ObjectRunWithReturn<T> run) {
+        return run.run(t);
     }
 
     public static void runIf(Boolean b, @Nonnull final ObjectRun runTure, @Nullable final ObjectRun runFalse) {
@@ -24,5 +23,9 @@ public class ObjectUtil {
 
     public interface ObjectRunWithType<T> {
         void run(T t);
+    }
+
+    public interface ObjectRunWithReturn<T> {
+        T run(T t);
     }
 }

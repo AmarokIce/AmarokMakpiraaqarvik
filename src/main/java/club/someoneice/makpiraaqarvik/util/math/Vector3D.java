@@ -7,13 +7,20 @@ public class Vector3D {
     public Double y;
     public Double z;
 
+    public static final Vector3D ZERO = new Vector3D(0.0, 0.0, 0.0);
+    public static final Vector3D XN = new Vector3D(-1.0, 0.0, 0.0);
+    public static final Vector3D XP = new Vector3D(1.0, 0.0, 0.0);
+    public static final Vector3D YN = new Vector3D(0.0, -1.0, 0.0);
+    public static final Vector3D YP = new Vector3D(0.0, 1.0, 0.0);
+    public static final Vector3D ZN = new Vector3D(0.0, 0.0, -1.0);
+    public static final Vector3D ZP = new Vector3D(0.0, 0.0, 1.0);
+
     public Vector3D(Double x, Double y, Double z) {
         this.x = x;
         this.y = y;
         this.z = z;
     }
 
-    public static final Vector3D ZERO = new Vector3D(0.0, 0.0, 0.0);
 
     public Vector3D vectorTo(Vector3D vec3d) {
         Vector3D ret = Vector3D.ZERO;
@@ -47,6 +54,10 @@ public class Vector3D {
 
     public void sub(Vector3D vec3d) {
         sub(vec3d.x, vec3d.y, vec3d.z);
+    }
+
+    public Vector3D copy() {
+        return new Vector3D(this.x, this.y, this.z);
     }
 
     @Override

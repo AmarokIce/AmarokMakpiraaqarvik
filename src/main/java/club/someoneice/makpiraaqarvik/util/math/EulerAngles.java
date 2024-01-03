@@ -16,9 +16,9 @@ public class EulerAngles {
     public EulerAngles(double w, double x, double y, double z) {
         this.roll = (double) Math.atan2(2 * (w * x + y * z),  1 - 2 * (Math.pow(x, 2) + Math.pow(y, 2)));
 
-        ObjectUtil.runLambda(2 * (w * y - z * x), it -> {
-            if (Math.abs(it) >= 1) this.pitch = Math.copySign(1.57075f, it);
-            else this.pitch = (double) Math.asin(it);
+        this.pitch = ObjectUtil.run(2 * (w * y - z * x), it -> {
+            if (Math.abs(it) >= 1) return Math.copySign(1.57075f, it);
+            else return Math.asin(it);
         });
 
         this.yaw = Math.atan2(2 * (w * z + x * y), 1 - 2 * (Math.pow(y, 2) + Math.pow(z, 2)));
