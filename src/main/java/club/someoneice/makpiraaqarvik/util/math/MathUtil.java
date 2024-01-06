@@ -1,6 +1,5 @@
 package club.someoneice.makpiraaqarvik.util.math;
 
-import club.someoneice.makpiraaqarvik.util.ObjectUtil;
 import net.minecraft.core.BlockPos;
 
 public class MathUtil {

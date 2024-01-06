@@ -2,7 +2,6 @@ package club.someoneice.makpiraaqarvik.common.command;
 
 import club.someoneice.makpiraaqarvik.util.ConfigUtil;
 import com.mojang.brigadier.arguments.StringArgumentType;
-
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;

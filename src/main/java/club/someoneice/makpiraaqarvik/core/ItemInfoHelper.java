@@ -1,6 +1,5 @@
 package club.someoneice.makpiraaqarvik.core;
 
-import club.someoneice.makpiraaqarvik.Main;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import net.minecraft.network.chat.Component;
