@@ -1,17 +1,14 @@
-<h1 align="center">
-
-![](src/main/resources/assets/amarokmakpiraaqarvik/SmallLogo.png)  
-**Amaruq Makpiraaqarvik**
-
-</h1>
-
---- 
-
-<h2 align="center">
-A simple coding library for Minecraft NeoForge
-</h2>
-
 <div align="center">
+
+![](src/main/resources/assets/amarokmakpiraaqarvik/LibraryLogo.png)  
+
+Amaruq Makpiraaqarvik
+---
+
+**(Amarok Library)**
+
+A simple coding library for Minecraft NeoForge
+
 
 ![Static Badge](https://img.shields.io/badge/Minecraft-1.21-blue)
 ![Static Badge](https://img.shields.io/badge/AmarokLibrary%20Version-1.0-red)
