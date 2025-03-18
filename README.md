@@ -16,6 +16,7 @@ A simple coding library for Minecraft NeoForge
 ![Static Badge](https://img.shields.io/badge/Minecraft-1.21-blue)
 ![Static Badge](https://img.shields.io/badge/AmarokLibrary%20Version-1.0-red)
 ![Static Badge](https://img.shields.io/badge/License-MPL%202.0-orange)
+[![](https://jitpack.io/v/AmarokIce/AmarokMakpiraaqarvik.svg)](https://jitpack.io/#AmarokIce/AmarokMakpiraaqarvik)
 
 </div>
 
@@ -24,16 +25,13 @@ A simple coding library for Minecraft NeoForge
 ```groovy
 repositories {
     // Other repositories... 
-    maven {
-        name "AmarokMaven"
-        url "http://maven.snowlyicewolf.club/"
-        allowInsecureProtocol = true
-    }
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
     // Other dependencies... 
-    
-    implementation "club.someoneice.makpiraaqarvik:AmarokMakpiraaqarvik:1.20-${AmarokLibraryVersion}"
+
+    implementation 'com.github.AmarokIce:AmarokMakpiraaqarvik:1.21.1-1.0'
 }
 ```
