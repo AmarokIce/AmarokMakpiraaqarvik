@@ -22,65 +22,88 @@ public class TickEventHandler {
     static final Map<String, Integer> playerTickMap = Maps.newHashMap();
 
     @SubscribeEvent
-    public static void clientTickEvent(ClientTickEvent event) {
-        clientTick++;
+    public static void clientTickEvent(ClientTickEvent.Pre event) {
+        if (++clientTick >= 20) {
+            NeoForge.EVENT_BUS.post(new SecondsTickEvent.Client(Phase.PRE));
+        }
+    }
+
+    @SubscribeEvent
+    public static void clientTickEvent(ClientTickEvent.Post event) {
         if (clientTick >= 20) {
-            if (event instanceof ClientTickEvent.Pre) {
-                NeoForge.EVENT_BUS.post(new SecondsTickEvent.Client(Phase.PRE));
-            } else {
-                NeoForge.EVENT_BUS.post(new SecondsTickEvent.Client(Phase.POST));
-            }
+            NeoForge.EVENT_BUS.post(new SecondsTickEvent.Client(Phase.POST));
             clientTick = 0;
         }
     }
 
     @SubscribeEvent
-    public static void serverTickEvent(ServerTickEvent event) {
-        serverTick++;
+    public static void serverTickEvent(ServerTickEvent.Pre event) {
+        if (++serverTick >= 20) {
+            NeoForge.EVENT_BUS.post(new SecondsTickEvent.Server(Phase.PRE, event.hasTime(), event.getServer()));
+        }
+    }
+
+    @SubscribeEvent
+    public static void serverTickEvent(ServerTickEvent.Post event) {
         if (serverTick >= 20) {
-            if (event instanceof ServerTickEvent.Pre) {
-                NeoForge.EVENT_BUS.post(new SecondsTickEvent.Server(Phase.PRE, event.hasTime(), event.getServer()));
-            } else {
-                NeoForge.EVENT_BUS.post(new SecondsTickEvent.Server(Phase.POST, event.hasTime(), event.getServer()));
-            }
+            NeoForge.EVENT_BUS.post(new SecondsTickEvent.Server(Phase.POST, event.hasTime(), event.getServer()));
             serverTick = 0;
         }
     }
 
     @SubscribeEvent
-    public static void worldTickEvent(LevelTickEvent event) {
+    public static void worldTickEvent(LevelTickEvent.Pre event) {
         final String worldName = event.getLevel().dimension().toString();
-        final int tick = worldTickMap.getOrDefault(worldName, 0);
+        final int tick = worldTickMap.getOrDefault(worldName, 0) + 1;
         final boolean flag = tick >= 20;
-        worldTickMap.put(worldName, flag ? 0 : tick + 1);
 
         if (!flag) {
             return;
         }
 
-        if (event instanceof LevelTickEvent.Pre) {
-            NeoForge.EVENT_BUS.post(new SecondsTickEvent.World(Phase.PRE, event.hasTime(), event.getLevel()));
-        } else {
-            NeoForge.EVENT_BUS.post(new SecondsTickEvent.World(Phase.POST, event.hasTime(), event.getLevel()));
-        }
+        NeoForge.EVENT_BUS.post(new SecondsTickEvent.World(Phase.PRE, event.hasTime(), event.getLevel()));
     }
 
     @SubscribeEvent
-    public static void playerTickEvent(PlayerTickEvent event) {
-        final String name = event.getEntity().getScoreboardName();
-        final int tick = playerTickMap.getOrDefault(name, 0);
+    public static void worldTickEvent(LevelTickEvent.Post event) {
+        final String worldName = event.getLevel().dimension().toString();
+        final int tick = worldTickMap.getOrDefault(worldName, 0) + 1;
         final boolean flag = tick >= 20;
-        playerTickMap.put(name, flag ? 0 : tick + 1);
+        worldTickMap.put(worldName, flag ? 0 : tick);
 
         if (!flag) {
             return;
         }
 
-        if (event instanceof PlayerTickEvent.Pre) {
-            NeoForge.EVENT_BUS.post(new SecondsTickEvent.Player(Phase.PRE, event.getEntity()));
-        } else {
-            NeoForge.EVENT_BUS.post(new SecondsTickEvent.Player(Phase.POST, event.getEntity()));
+        NeoForge.EVENT_BUS.post(new SecondsTickEvent.World(Phase.POST, event.hasTime(), event.getLevel()));
+    }
+
+    @SubscribeEvent
+    public static void playerTickEvent(PlayerTickEvent.Pre event) {
+        final String name = event.getEntity().getScoreboardName();
+        final int tick = playerTickMap.getOrDefault(name, 0) + 1;
+        final boolean flag = tick >= 20;
+
+        if (!flag) {
+            return;
         }
+
+        NeoForge.EVENT_BUS.post(new SecondsTickEvent.Player(Phase.PRE, event.getEntity()));
+
+    }
+
+    @SubscribeEvent
+    public static void playerTickEvent(PlayerTickEvent.Post event) {
+        final String name = event.getEntity().getScoreboardName();
+        final int tick = playerTickMap.getOrDefault(name, 0) + 1;
+        final boolean flag = tick >= 20;
+        playerTickMap.put(name, flag ? 0 : tick);
+
+        if (!flag) {
+            return;
+        }
+
+        NeoForge.EVENT_BUS.post(new SecondsTickEvent.Player(Phase.PRE, event.getEntity()));
     }
 
     @SubscribeEvent

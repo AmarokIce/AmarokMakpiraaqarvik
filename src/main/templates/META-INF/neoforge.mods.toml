@@ -1,24 +1,19 @@
 modLoader="javafml"
 loaderVersion="${loader_version_range}"
 license="${mod_license}"
+issueTrackerURL="https://github.com/AmarokIce/AmarokMakpiraaqarvik/issues"
 
 [[mods]]
 modId="${mod_id}"
 version="${mod_version}"
 displayName="${mod_name}"
-#updateJSONURL="https://change.me.example.invalid/updates.json"
-#displayURL="https://change.me.to.your.mods.homepage.example.invalid/"
+displayURL="https://www.mcmod.cn/class/13109.html"
 logoFile="assets/amarokmakpiraaqarvik/LibraryLogo.png"
-#credits=""
 authors="${mod_authors}"
 description='''${mod_description}'''
 
 #[[mixins]]
 #config="${mod_id}.mixins.json"
-
-#[[accessTransformers]]
-#file="META-INF/accesstransformer.cfg"
-
 
 [[dependencies.${mod_id}]]
     modId="neoforge"

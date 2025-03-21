@@ -1,10 +1,9 @@
-package club.someoneice.makpiraaqarvik;
+package club.someoneice.makpiraaqarvik.lib;
 
 import club.someoneice.json.JSON;
 import club.someoneice.json.node.JsonNode;
 import club.someoneice.json.node.MapNode;
 import club.someoneice.json.processor.Json5Builder;
-import club.someoneice.makpiraaqarvik.lib.ObjectUtils;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.common.io.Files;
