@@ -13,7 +13,7 @@ import org.apache.logging.log4j.Logger;
 
 @Mod(AmarokMakpiraaqarvik.ID)
 public class AmarokMakpiraaqarvik {
-    public static final String ID = "amarok_makpiraaqarvik";
+    public static final String ID = "amarokmakpiraaqarvik";
     public static final Logger LOGGER = LogManager.getLogger(ID);
 
     public AmarokMakpiraaqarvik(IEventBus modEventBus, Dist dist, ModContainer container) {
