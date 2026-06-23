@@ -1,7 +1,7 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
-    id 'net.neoforged.moddev' version '2.0.78'
+    id 'net.neoforged.moddev' version '2.0.141'
 }
 
 tasks.named('wrapper', Wrapper).configure {
@@ -75,7 +75,8 @@ repositories {
 }
 
 dependencies {
-    includeCompile "club.snowlyicewolf:amarok-json-for-java:1.7.6"
+    includeCompile "club.snowlyicewolf:amarok-json-for-java:1.7.9"
+    includeCompile "club.snowlyicewolf:amarok-kdl-for-java:1.0.1"
 }
 
 jar {

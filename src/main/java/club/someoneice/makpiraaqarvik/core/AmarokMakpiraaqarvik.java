@@ -1,6 +1,5 @@
 package club.someoneice.makpiraaqarvik.core;
 
-import club.someoneice.makpiraaqarvik.core.init.EffectInit;
 import club.someoneice.makpiraaqarvik.lib.ItemInfoHelper;
 import club.someoneice.makpiraaqarvik.lib.ObjectUtils;
 import net.neoforged.bus.api.IEventBus;
@@ -17,9 +16,7 @@ public class AmarokMakpiraaqarvik {
     public static final Logger LOGGER = LogManager.getLogger(ID);
 
     public AmarokMakpiraaqarvik(IEventBus modEventBus) {
-        EffectInit.EFFECTS.register(modEventBus);
-
-        NeoForge.EVENT_BUS.register(this);
+                NeoForge.EVENT_BUS.register(this);
     }
 
     @SubscribeEvent
